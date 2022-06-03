@@ -1,0 +1,1274 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
+body {
+  overflow: hidden;
+  max-width: 100%;
+  background-color: #433D41;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.top-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: transparent;
+  color: #FFF;
+  height: 50px;
+  padding: 1em;
+  font-family: 'Raleway', sans-serif;
+}
+
+.top-nav img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto 0;
+  margin-right: 0.5em;
+  width: 110px;
+  padding: 0.125em;
+  height: 100%;
+}
+
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu a {
+  margin: 50px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1000px) {
+  .menu a {
+    margin: 0px;
+  }
+}
+
+.top-nav ul li a {
+  position: relative;
+  color: #8C5E52;
+  font-size: 20px;
+  padding: 5px 0;
+}
+
+.top-nav ul li a::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 10%;
+  height: 3px;
+  width: 100%;
+  background: #8C5E52;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: -webkit-transform .4s linear;
+  transition: -webkit-transform .4s linear;
+  transition: transform .4s linear;
+  transition: transform .4s linear, -webkit-transform .4s linear;
+}
+
+.top-nav ul li a:hover:before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+  margin-right: 80px;
+  margin-left: 40px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1000px) {
+  .dropdown {
+    margin-right: 25px;
+  }
+}
+
+.dropdown .dropbtn {
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #DCD7D4;
+  min-width: 160px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+}
+
+.dropdown-content a {
+  float: none;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*Hamburger Menu*/
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+/*Creation and the Animation of the menu button*/
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: #8C5E52;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  -webkit-transition: -webkit-transform 1000ms;
+  transition: -webkit-transform 1000ms;
+  transition: transform 1000ms;
+  transition: transform 1000ms, -webkit-transform 1000ms;
+  border-radius: 2px;
+}
+
+/*top line of hambruger icon*/
+.menu-button::before {
+  content: '';
+  margin-top: -8px;
+}
+
+/*bottom line of hambruger icon*/
+.menu-button::after {
+  content: '';
+  margin-top: 8px;
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+  margin-top: 0px;
+  -webkit-transform: rotateZ(45deg) scaleX(0.6) translate(1px, 9.5px);
+          transform: rotateZ(45deg) scaleX(0.6) translate(1px, 9.5px);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+  margin-top: 0px;
+  -webkit-transform: rotateZ(315deg) scaleX(0.6) translate(1px, -9.5px);
+          transform: rotateZ(315deg) scaleX(0.6) translate(1px, -9.5px);
+}
+
+/*Animation of Hamburger Menu*/
+@media screen and (min-width: 0px) and (max-width: 1000px) {
+  .menu-button-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 50px;
+    left: 0px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: block;
+    z-index: 5;
+  }
+  #menu-toggle ~ .menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin-top: -80px;
+    -webkit-transition: 700ms;
+    transition: 700ms;
+  }
+  #menu-toggle:checked ~ .menu li {
+    height: 2.5em;
+    padding: 0.5em;
+    -webkit-transition: 700ms;
+    transition: 700ms;
+    z-index: 2;
+    margin-right: 0;
+    margin-top: 0px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #menu-toggle:checked ~ .menu li a {
+    margin-right: 0;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .menu > li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 0;
+    padding: 0.5em 0;
+    width: 100%;
+    color: #8C5E52;
+    background-color: #433D41;
+  }
+}
+
+.emirates {
+  height: 700vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emirates-title {
+  width: 50%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 30px;
+  color: white;
+  margin: 0 !important;
+}
+
+.emirates-pages {
+  width: 50%;
+}
+
+.emirates-pages div {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.emirates-pages .sharjah-img {
+  background: url(../image/sharjah.png);
+  background-position: 55% 35%;
+  background-repeat: no-repeat;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.emirates-pages .sharjah-img .sharjah1 {
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 10px;
+  font-size: 30px;
+  margin-top: 25%;
+  margin-right: 20%;
+  color: white;
+  text-decoration: none;
+}
+
+.emirates-pages .sharjah-img a {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  font-size: 1.5rem;
+  color: #F4ECEA;
+  opacity: 1;
+}
+
+.emirates-pages .sharjah-img:hover a {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.emirates-pages .dubai-img {
+  background: url(../image/dubai.png);
+  background-position: 55% 35%;
+  background-repeat: no-repeat;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.emirates-pages .dubai-img .dubai1 {
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 10px;
+  font-size: 30px;
+  margin-top: 25%;
+  margin-right: 20%;
+  color: white;
+  text-decoration: none;
+}
+
+.emirates-pages .dubai-img a {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  font-size: 1.5rem;
+  color: #F4ECEA;
+  opacity: 1;
+}
+
+.emirates-pages .dubai-img:hover a {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.emirates-pages .auh-img {
+  background: url(../image/abudhabi.png);
+  background-position: 55% 35%;
+  background-repeat: no-repeat;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.emirates-pages .auh-img .auh1 {
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 10px;
+  font-size: 30px;
+  margin-top: 25%;
+  margin-right: 20%;
+  color: white;
+  text-decoration: none;
+}
+
+.emirates-pages .auh-img a {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  font-size: 1.5rem;
+  color: #F4ECEA;
+  opacity: 1;
+}
+
+.emirates-pages .auh-img:hover a {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.emirates-pages .ajman-img {
+  background: url(../image/ajmane.png);
+  background-position: 55% 35%;
+  background-repeat: no-repeat;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.emirates-pages .ajman-img .ajman1 {
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 10px;
+  font-size: 30px;
+  margin-top: 25%;
+  margin-right: 20%;
+  color: white;
+  text-decoration: none;
+}
+
+.emirates-pages .ajman-img a {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  font-size: 1.5rem;
+  color: #F4ECEA;
+  opacity: 1;
+}
+
+.emirates-pages .ajman-img:hover a {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.emirates-pages .fujairah-img {
+  background: url(../image/fujairah.png);
+  background-position: 55% 35%;
+  background-repeat: no-repeat;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.emirates-pages .fujairah-img .fujairah1 {
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 10px;
+  font-size: 30px;
+  margin-top: 25%;
+  margin-right: 20%;
+  color: white;
+  text-decoration: none;
+}
+
+.emirates-pages .fujairah-img a {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  font-size: 1.5rem;
+  color: #F4ECEA;
+  opacity: 1;
+}
+
+.emirates-pages .fujairah-img:hover a {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.emirates-pages .rak-img {
+  background: url(../image/rasalkhaima.png);
+  background-position: 55% 35%;
+  background-repeat: no-repeat;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.emirates-pages .rak-img .rak1 {
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 10px;
+  font-size: 30px;
+  margin-top: 5%;
+  margin-right: 20%;
+  color: white;
+  text-decoration: none;
+}
+
+.emirates-pages .rak-img a {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  font-size: 1.5rem;
+  color: #F4ECEA;
+  opacity: 1;
+}
+
+.emirates-pages .rak-img:hover a {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.emirates-pages .uaq-img {
+  background: url(../image/ummalquain.png);
+  background-position: 55% 35%;
+  background-repeat: no-repeat;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.emirates-pages .uaq-img .uaq1 {
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 10px;
+  font-size: 30px;
+  margin-top: 5%;
+  margin-right: 20%;
+  color: white;
+  text-decoration: none;
+}
+
+.emirates-pages .uaq-img a {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  font-size: 1.5rem;
+  color: #F4ECEA;
+  opacity: 1;
+}
+
+.emirates-pages .uaq-img:hover a {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.emirates-pages div:nth-child(1) {
+  background-color: #DCD7D4;
+}
+
+.emirates-pages div:nth-child(2) {
+  background-color: #B1A39A;
+}
+
+.emirates-pages div:nth-child(3) {
+  background-color: #B9974D;
+  color: white;
+}
+
+.emirates-pages div:nth-child(4) {
+  background-color: #DCD7D4;
+}
+
+.emirates-pages div:nth-child(5) {
+  background-color: #B1A39A;
+}
+
+.emirates-pages div:nth-child(6) {
+  background-color: #B9974D;
+  color: white;
+}
+
+.emirates-pages div:nth-child(7) {
+  background-color: #DCD7D4;
+}
+
+.sharjah {
+  font-weight: bold;
+  color: #DCD7D4;
+  margin: 50px;
+  font-size: 60px;
+}
+
+#sharjah-text {
+  text-align: center;
+  letter-spacing: 30px;
+  margin-bottom: 6%;
+}
+
+.sharjah-container {
+  font-weight: bold;
+  font-size: 30px;
+  color: #DCD7D4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.sharjah-container p {
+  background-color: rgba(255, 255, 255, 0.316);
+  padding: 63px;
+  margin-bottom: 7px;
+}
+
+#em-img {
+  height: 400px;
+  width: 600px;
+}
+
+#bottom-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#em1-img {
+  height: 400px;
+  width: 800px;
+}
+
+@media screen and (min-width: 0) and (max-width: 1200px) {
+  .sharjah-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .dubai-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .abudhabi-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .ajman-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .fujairah-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .rasalkhaima-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .ummalquwain-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.dubai {
+  font-weight: bold;
+  color: #DCD7D4;
+  margin: 50px;
+  font-size: 60px;
+}
+
+#dubai-text {
+  text-align: center;
+  letter-spacing: 30px;
+  margin-bottom: 6%;
+}
+
+.dubai-container {
+  font-weight: bold;
+  font-size: 30px;
+  color: #DCD7D4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.dubai-container p {
+  background-color: rgba(255, 255, 255, 0.316);
+  padding: 96px;
+  margin-bottom: 7px;
+}
+
+#em-img {
+  height: 400px;
+  width: 600px;
+}
+
+#bottom-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#em1-img {
+  height: 400px;
+  width: 800px;
+}
+
+.abudhabi {
+  font-weight: bold;
+  color: #494347;
+  font-size: 60px;
+  background-color: #B1A39A;
+  width: 100%;
+}
+
+#abudhabi-text {
+  text-align: center;
+  letter-spacing: 30px;
+  margin-bottom: 6%;
+}
+
+.abudhabi-container {
+  font-weight: bold;
+  font-size: 30px;
+  color: #494347;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.abudhabi-container p {
+  background-color: rgba(255, 255, 255, 0.316);
+  padding: 45px;
+  margin-bottom: 7px;
+}
+
+#em-img {
+  height: 400px;
+  width: 600px;
+}
+
+#bottom-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#em1-img {
+  height: 400px;
+  width: 800px;
+}
+
+.ajman {
+  font-weight: bold;
+  color: #494347;
+  font-size: 60px;
+  background-color: #B1A39A;
+  width: 100%;
+}
+
+#ajman-text {
+  text-align: center;
+  letter-spacing: 30px;
+  margin-bottom: 6%;
+}
+
+.ajman-container {
+  font-weight: bold;
+  font-size: 30px;
+  color: #494347;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.ajman-container p {
+  background-color: rgba(255, 255, 255, 0.316);
+  padding: 29px;
+  margin-bottom: 7px;
+}
+
+#em-img {
+  height: 400px;
+  width: 600px;
+}
+
+#bottom-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#em1-img {
+  height: 400px;
+  width: 800px;
+}
+
+.fujairah {
+  font-weight: bold;
+  color: #DCD7D4;
+  margin: 50px;
+  font-size: 60px;
+}
+
+#fujairah-text {
+  text-align: center;
+  letter-spacing: 30px;
+  margin-bottom: 6%;
+}
+
+.fujairah-container {
+  font-weight: bold;
+  font-size: 30px;
+  color: #DCD7D4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.fujairah-container p {
+  background-color: rgba(255, 255, 255, 0.316);
+  padding: 76px;
+  margin-bottom: 7px;
+}
+
+#em-img {
+  height: 400px;
+  width: 600px;
+}
+
+#bottom-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#em1-img {
+  height: 400px;
+  width: 800px;
+}
+
+.rasalkhaima {
+  font-weight: bold;
+  color: #DCD7D4;
+  margin: 50px;
+  font-size: 60px;
+}
+
+#rasalkhaima-text {
+  text-align: center;
+  letter-spacing: 30px;
+  margin-bottom: 6%;
+}
+
+.rasalkhaima-container {
+  font-weight: bold;
+  font-size: 30px;
+  color: #DCD7D4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.rasalkhaima-container p {
+  background-color: rgba(255, 255, 255, 0.316);
+  padding: 62.5px;
+  margin-bottom: 7px;
+}
+
+#em-img {
+  height: 400px;
+  width: 600px;
+}
+
+#bottom-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#em1-img {
+  height: 400px;
+  width: 800px;
+}
+
+.ummalquwain {
+  font-weight: bold;
+  color: #494347;
+  font-size: 60px;
+  background-color: #B1A39A;
+  width: 100%;
+}
+
+#ummalquwain-text {
+  text-align: center;
+  letter-spacing: 30px;
+  margin-bottom: 6%;
+}
+
+.ummalquwain-container {
+  font-weight: bold;
+  font-size: 30px;
+  color: #494347;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.ummalquwain-container p {
+  background-color: rgba(255, 255, 255, 0.316);
+  padding: 8px;
+  margin-bottom: 7px;
+}
+
+#em-img {
+  height: 400px;
+  width: 600px;
+}
+
+#bottom-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#em1-img {
+  height: 400px;
+  width: 800px;
+}
+
+@media screen and (min-width: 0) and (max-width: 599px) {
+  .sharjah {
+    font-size: 30px;
+  }
+  #sharjah-text {
+    letter-spacing: 10px;
+  }
+  .sharjah-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 20px;
+  }
+  .sharjah-container p {
+    padding: 10px;
+  }
+  .dubai {
+    font-size: 30px;
+  }
+  #dubai-text {
+    letter-spacing: 10px;
+  }
+  .dubai-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 20px;
+  }
+  .dubai-container p {
+    padding: 10px;
+  }
+  .ajman {
+    font-size: 30px;
+  }
+  #ajman-text {
+    letter-spacing: 10px;
+  }
+  .ajman-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 20px;
+  }
+  .ajman-container p {
+    padding: 10px;
+  }
+  .abudhabi {
+    font-size: 30px;
+  }
+  #abudhabi-text {
+    letter-spacing: 10px;
+  }
+  .abudhabi-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 20px;
+  }
+  .abudhabi-container p {
+    padding: 10px;
+  }
+  .fujairah {
+    font-size: 30px;
+  }
+  #fujairah-text {
+    letter-spacing: 10px;
+  }
+  .fujairah-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 20px;
+  }
+  .fujairah-container p {
+    padding: 10px;
+  }
+  .rasalkhaima {
+    font-size: 30px;
+  }
+  #rasalkhaima-text {
+    letter-spacing: 10px;
+  }
+  .rasalkhaima-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 20px;
+  }
+  .rasalkhaima-container p {
+    padding: 10px;
+  }
+  .ummalquwain {
+    font-size: 30px;
+  }
+  #ummalquwain-text {
+    letter-spacing: 10px;
+  }
+  .ummalquwain-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 20px;
+  }
+  .ummalquwain-container p {
+    padding: 10px;
+  }
+}
+
+.part6 {
+  padding-top: 20%;
+  text-align: center;
+  color: #DCD7D4;
+}
+
+#part6-top {
+  font-size: 100px;
+}
+
+#quote {
+  font-size: 20px;
+  letter-spacing: 8px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+#profile {
+  margin-top: 3%;
+}
+
+#name {
+  font-size: 25px;
+  letter-spacing: 5px;
+  font-weight: bold;
+}
+
+#status {
+  font-size: 20px;
+  letter-spacing: 7px;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 15%;
+  background-color: #B1A39A;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 30px;
+  color: #DCD7D4;
+  font-weight: bold;
+  letter-spacing: 18px;
+}
+/*# sourceMappingURL=Emirates.css.map */

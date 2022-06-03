@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../scss-css/SelectedBooking.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!--Navigation Bar-->
+    <section class="top-nav">
+        <div>
+            <img src="../image/-1 (1).png" />
+        </div>
+        <input id="menu-toggle" type="checkbox" />
+        <label class='menu-button-container' for="menu-toggle">
+            <div class='menu-button'></div><!--This will be the Hamburger Icon-->
+        </label>
+        <ul class="menu">
+            <li><a href="#">Main</a></li>
+            <li><a href="#">Emirates</a></li>
+            <li><div class="dropdown">
+                <a href="#" class="dropbtn">Activities 
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-content">
+                  <a href="#">Explore</a>
+                  <a href="#">Booking</a>
+                </div></li>
+            <li><div class="dropdown">
+                <a href="#" class="dropbtn">Travel Guide 
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-content">
+                  <a href="#">UAE History</a>
+                  <a href="#">Consideration</a>
+                </div></li>
+        </ul>
+    </section>
+
+    <section class="swip">
+        <div class="swiper gallery-top">
+            <div class="swiper-wrapper">
+                <!--Instructions: IF YOU WANT TO ADD MORE IMAGE JUST COPY AND PASTE ONE BELOW-->
+                <div class="swiper-slide" style="background-image:url(../image/hot1.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/ho2.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/hotel2.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/hotel3.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/hotel4.jpg)"></div>
+            </div>
+            <!-- Add Arrows -->
+            <div id ="button" class="swiper-button-next swiper-button-white"></div>
+            <div id ="button" class="swiper-button-prev swiper-button-white"></div>
+        </div>
+        <div class="swiper gallery-thumbs">
+            <div class="swiper-wrapper">
+                <!--Instructions: IF YOU WANT TO ADD MORE IMAGE JUST COPY AND PASTE ONE BELOW-->
+                <div class="swiper-slide" style="background-image:url(../image/hot1.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/ho2.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/hotel2.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/hotel3.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/hotel4.jpg)"></div>
+            </div>
+        </div>
+      </section>
+
+      <div class="container2">
+        <div class="heading2">
+            <p> <i class="fa fa-map-pin"></i> Location</p>
+            <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.4025065259634!2d55.37996381549839!3d25.32427108383718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5becac20c0ed%3A0xbb29eb126288e6b7!2sGolden%20Tulip%20Sharjah!5e0!3m2!1sen!2sae!4v1653488740044!5m2!1sen!2sae"
+             width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            </div>
+            <div class="button-container">
+            <a href="#" class="button"><h2>Book now</h2></a>
+            </div>
+    </div>
+    <div class="first">
+        <p>Located in Dubai, 4.8 mi from Jumeirah Beach, Grand Cosmopolitan Hotel provides accommodations with three restaurants, free private parking, outdoor swimming pools and a fitness center. </p>
+        <p>Featuring family rooms, this property also provides guests with a children's playground. The accommodations offers a 24-hour front desk, room service and currency exchange for guests.</p>
+    </div>
+
+    <div class="second">
+        <h2 id="headingfac">Most popular facilities</h2>
+        <div class="facilities">
+            <p><i class="material-icons">pool</i></i> 2 swimming pools  <i class="material-icons">wifi</i> Free WiFi </p>
+            <p><i class="material-icons">family_restroom</i> Family rooms  <i class="material-icons">local_parking</i> Free Parking</p>
+            <p><i class="material-icons">fitness_center</i> Very Good Fitness Center</p>
+            <p><i class="material-icons">coffee_maker</i> Tea/Coffee Maker in All Rooms</p>
+        </div>
+    </div>
+    <footer>YURS 2022</footer>
+
+      <!--Dont Touch (Js Codes)-->
+      <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+      <script type="module">
+
+        var galleryThumbs = new Swiper('.gallery-thumbs', {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+        });
+         var galleryTop = new Swiper('.gallery-top', {
+        spaceBetween: 10,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        thumbs: {
+            swiper: galleryThumbs
+        }
+        });
+      </script>
+</body>
+</html>

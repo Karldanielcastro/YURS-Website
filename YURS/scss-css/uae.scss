@@ -1,0 +1,428 @@
+@mixin breakpoint($min-width, $max-width) {
+  @media screen and (min-width: $min-width) and (max-width: $max-width) {
+      @content;
+  }
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
+body {
+  overflow: hidden;
+  max-width: 100%;
+  background-color: #433D41;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: none;
+  z-index: 5; }
+
+  /*Navigation Bar*/
+  .top-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    color: #FFF;
+    height: 50px;
+    padding: 1em;
+    background-color: #DCD7D4;
+    font-family: 'Raleway', sans-serif;
+  
+    img {
+        display: flex;
+        margin: auto 0;
+        margin-right: 0.5em;
+        width: 110px;
+        padding: 0.125em;
+        height: 100%;
+    }
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding:0;
+    a{
+      margin: 50px;
+    }
+    @include breakpoint(0px, 1000px){
+      a{
+        margin:0px;
+      }
+    }
+  }
+  
+  
+  .top-nav ul li a{
+    position: relative;
+    color: #8C5E52;
+    font-size: 20px;
+    padding: 5px 0;
+  }
+  .top-nav ul li a::before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top:10%;
+    height: 3px;
+    width: 100%;
+    background: #8C5E52;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .4s linear;
+  }
+  .top-nav ul li a:hover:before{
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .dropdown {
+    float: left;
+    overflow: hidden;
+    margin-right: 80px;
+    margin-left: 40px;
+    @include breakpoint(0px, 1000px) {
+      margin-right: 25px;
+    }
+    .dropbtn {
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #DCD7D4;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+    a {
+      float: none;
+      text-decoration: none;
+      display: flex;  
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /*Hamburger Menu*/
+  .menu-button-container {
+    display: none;
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #menu-toggle {
+    display: none;
+  }
+  
+  /*Creation and the Animation of the menu button*/
+  .menu-button,
+  .menu-button::before,
+  .menu-button::after {
+    display: block;
+    background-color: #8C5E52;
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    transition: transform 1000ms;
+    border-radius: 2px;
+  }
+  /*top line of hambruger icon*/
+  .menu-button::before {
+    content: '';
+    margin-top: -8px;
+  }
+  /*bottom line of hambruger icon*/
+  .menu-button::after {
+    content: '';
+    margin-top: 8px;
+  }
+  
+  #menu-toggle:checked + .menu-button-container .menu-button::before {
+    margin-top: 0px;
+    transform: rotateZ(45deg) scaleX(0.6) translate(1px, 9.5px);
+  }
+  
+  
+  #menu-toggle:checked + .menu-button-container .menu-button::after {
+    margin-top: 0px;
+    transform: rotateZ(315deg) scaleX(0.6) translate(1px, -9.5px);
+  }
+  
+  /*Animation of Hamburger Menu*/
+  @include breakpoint(0px, 1000px) {
+    .menu-button-container {
+        display: flex;
+    }
+  
+    .menu {
+        position: absolute;
+        top: 0;
+        margin-top: 50px;
+        left: 0px;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: block;
+        z-index: 5;
+    }
+  
+    #menu-toggle ~ .menu li {
+        height: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        margin-top: -80px;
+        transition:  700ms ;
+    }
+    
+    #menu-toggle:checked ~ .menu li {
+        height: 2.5em;
+        padding: 0.5em;
+        transition:  700ms ;
+        z-index: 2;
+        margin-right:0;
+        margin-top:0px;
+        justify-content: center;
+    }
+    #menu-toggle:checked ~ .menu li a{
+      margin-right: 0;
+      justify-content: center;
+  }
+  
+    .menu > li {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0.5em 0;
+        width: 100%;
+        color: #8C5E52;
+        background-color: #433D41 ;
+    }
+  }
+.Guide{
+  display: flex;
+  flex-direction: row;
+  background-color: #DCD7D4;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10%;
+  margin-bottom: 25%;
+  @include breakpoint (0px, 1000px){
+    flex-direction: column;
+  }
+}
+
+    
+.head-text1 {
+  font-weight: bold;
+  font-size: 65px;
+  text-align: center;
+  letter-spacing: 30px;
+  width: 70%;
+  margin-left: 30%;
+  color: #8C5E52;
+  @include breakpoint (0px, 1000px){
+    font-size: 40px;
+    margin-left: 15%;
+  }
+}
+
+.img1{
+  margin-right: 20%;
+  @include breakpoint (0px, 1000px){
+    margin-right: 10%;
+  }
+}
+
+.container{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 80%;
+  justify-content: center;
+  margin-left: 10%;
+  letter-spacing: 15px;
+  margin-bottom: 20%;
+}
+
+.container::before{
+  content: '';
+  position: relative;
+  right: 20%;
+  width: 140%;
+  height: 550px;
+  margin-top: -32%;
+  background: linear-gradient(
+    to bottom,
+    #DCD7D4 80%,
+    #DCD7D4 80%,
+    #433D41 20%,
+    #433D41 20%
+  );
+  clip-path: polygon(-100% 0%, 100% 1%, -30% 100%);
+  z-index: -3;
+  @include breakpoint (0px, 1000px){
+    margin-top: -33%;
+  }
+}
+.container::after{
+  content: '';
+  position: relative;
+  left: -15%;
+  width: 140%;
+  height: 350px;
+  margin-bottom: -29%;
+  background: linear-gradient(
+    to bottom,
+    #DCD7D4 90%,
+    #DCD7D4 90%,
+    #433D41 10%,
+    #433D41 10%
+  );
+  clip-path: polygon(-80% 100%, 120% 100%, 0% 0%);
+  z-index: -3;
+  @include breakpoint (0px, 1000px){
+    margin-bottom: -40%;
+  }
+}
+
+
+.text1{
+  color:#E4B9AE;
+  font-size: 28px;
+}
+
+.text{
+  color:white;
+}
+.level{
+  color:red;
+}
+
+.Rules{
+  display: flex;
+  flex-direction: row;
+  background-color: #DCD7D4;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10%;
+  margin-bottom: 25%;
+  @include breakpoint (0px, 1000px){
+    flex-direction: column;
+  }
+}
+
+    
+.head-text2 {
+  font-weight: bold;
+  font-size: 65px;
+  text-align: center;
+  letter-spacing: 30px;
+  width: 70%;
+  margin-left: 30%;
+  color: #8C5E52;
+  @include breakpoint (0px, 1000px){
+    font-size: 40px;
+    margin-left: 10%;
+  }
+}
+
+.img2{
+  margin-right: 15%;
+  @include breakpoint (0px, 1000px){
+    margin-right: 5%;
+  }
+}
+
+.container2{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 80%;
+  justify-content: center;
+  margin-left: 10%;
+  letter-spacing: 15px;
+}
+.container2::before{
+  content: '';
+  position: relative;
+  left: -20%;
+  width: 140%;
+  height: 600px;
+  margin-top: -32%;
+  background: linear-gradient(
+    to bottom,
+    #DCD7D4 80%,
+    #DCD7D4 80%,
+    #433D41 20%,
+    #433D41 20%
+  );
+  clip-path: polygon(-100% 0%, 100% 1%, -30% 100%);
+  z-index: -3;
+  @include breakpoint (0px, 1000px){
+    margin-top: -33%;
+  }
+}
+
+.text2{
+  color:#E4B9AE;
+  font-size: 28px;
+  margin-top: 50px;
+}
+
+footer{
+  display: flex;
+  margin-top: 15%;
+  background-color: #B1A39A;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color:#DCD7D4;
+  font-weight: bold;
+  letter-spacing: 18px;
+  }

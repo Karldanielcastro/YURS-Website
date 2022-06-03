@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../scss-css/SelectedBooking.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!--Navigation Bar-->
+    <section class="top-nav">
+        <div>
+           <a href="../index.html"><img src="../image/-1 (1).png" /></a> 
+        </div>
+        <input id="menu-toggle" type="checkbox" />
+        <label class='menu-button-container' for="menu-toggle">
+            <div class='menu-button'></div><!--This will be the Hamburger Icon-->
+        </label>
+        <ul class="menu">
+            <li><a href="../index.html">Main</a></li>
+            <li><a href="#">Emirates</a></li>
+            <li><a href="Activity Page.html" class="dropbtn">Activities </a></li>
+            <li><div class="dropdown">
+                <a href="#" class="dropbtn">Travel Guide 
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-content">
+                    <a href="booking.html">Booking</a>
+                    <a href="about uae.html">UAE History</a>
+                </div></li>
+        </ul>
+    </section>
+
+    <section class="swip">
+        <div class="swiper gallery-top">
+            <div class="swiper-wrapper">
+                <!--Instructions: IF YOU WANT TO ADD MORE IMAGE JUST COPY AND PASTE ONE BELOW-->
+                <div class="swiper-slide" style="background-image:url(../image/pullman6.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/pullman1.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/pullman2.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/pullman3.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/pullman4.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/pullman5.jpg)"></div>
+            </div>
+            <!-- Add Arrows -->
+            <div id ="button" class="swiper-button-next swiper-button-white"></div>
+            <div id ="button" class="swiper-button-prev swiper-button-white"></div>
+        </div>
+        <div class="swiper gallery-thumbs">
+            <div class="swiper-wrapper">
+                <!--Instructions: IF YOU WANT TO ADD MORE IMAGE JUST COPY AND PASTE ONE BELOW-->
+                <div class="swiper-slide" style="background-image:url(../image/pullman6.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/pullman1.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/pullman2.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/pullman3.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/pullman4.jpg)"></div>
+                <div class="swiper-slide" style="background-image:url(../image/pullman5.jpg)"></div>
+            </div>
+        </div>
+      </section>
+
+      <div class="container2">
+        <div class="heading2">
+            <p id="hotel-loc"> <i class="fa fa-map-pin"></i> Al Taawun Street Sharjah, Sharjah, United Arab Emirates</p>
+            <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.7131185116423!2d55.373834351284884!3d25.313840933089388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5b88970a8c21%3A0x66847e6a130f7cba!2sPullman%20Sharjah!5e0!3m2!1sen!2sae!4v1653588071144!5m2!1sen!2sae"
+             width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            </div>
+            <div class="button-container">
+            <a href="#" class="button"><h2>Book now</h2></a>
+            </div>
+    </div>
+    <div class="first">
+        <p>Set in Sharjah, 2.1 km from Al Mamzar Open Beach, Pullman Sharjah offers accommodation with a restaurant, free private parking and a fitness centre. An indoor swimming pool and a car rental service are available for guests. The accommodation features a 24-hour front desk, room service and currency exchange for guests.</p>
+        <p>At the hotel every room includes air conditioning, a seating area, a flat-screen TV with cable channels, a safety deposit box and a private bathroom with a shower, bathrobes and slippers. Pullman Sharjah provides certain units with city views, and every room is fitted with a kettle. At the accommodation all rooms include bed linen and towels.</p>
+
+           <p>Continental and buffet breakfast options are available every morning at Pullman Sharjah.
+            
+            The hotel offers 5-star accommodation with a hot tub and children's playground.</p>
+    </div>
+
+    <div class="second">
+        <h2 id="headingfac">Most popular facilities</h2>
+        <div class="facilities">
+            <p><i class="material-icons">pool</i></i> 2 swimming pools | <i class="material-icons">wifi</i> Free WiFi </p>
+            <p><i class="material-icons">smoke_free</i> Non-smoking rooms | <i class="material-icons">local_parking</i> Free Parking</p>
+            <p><i class="material-icons">spa</i> Spa and wellness centre</p>
+            <p><i class="material-icons">fitness_center</i> Very Good Fitness Centre</p>
+            <p><i class="material-icons">coffee_maker</i> Tea/Coffee Maker in All Rooms</p>
+        </div>
+    </div>
+    <footer>YURS 2022</footer>
+
+      <!--Dont Touch (Js Codes)-->
+      <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+      <script type="module">
+
+        var galleryThumbs = new Swiper('.gallery-thumbs', {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+        });
+         var galleryTop = new Swiper('.gallery-top', {
+        spaceBetween: 10,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        thumbs: {
+            swiper: galleryThumbs
+        }
+        });
+      </script>
+</body>
+</html>
